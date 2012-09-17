@@ -24,12 +24,6 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# Model variant (DEFY_FROYO, DEFY_GINGER)
-BOARD_DEFY_MODEL := DEFY_FROYO
-
-USE_CAMERA_STUB := false
-BOARD_USES_GENERIC_AUDIO := false
-
 TARGET_NO_RECOVERY := false
 TARGET_NO_RADIOIMAGE := true
 TARGET_NO_BOOTLOADER := true
@@ -69,12 +63,15 @@ WIFI_AP_FIRMWARE_LOADER     := wlan_ap_loader
 BOARD_HOSTAPD_DRIVER        := true
 BOARD_HOSTAPD_DRIVER_NAME   := wilink
 
+USE_CAMERA_STUB := false
+BOARD_USES_GENERIC_AUDIO := false
+
 BOARD_USE_YUV422I_DEFAULT_COLORFORMAT := true
-BOARD_EGL_CFG := device/motorola/jordan/egl.cfg
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/jordan/UsbController.cpp
+BOARD_EGL_CFG := device/motorola/jordan-common/egl.cfg
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/jordan-common/UsbController.cpp
 
 BOARD_HAVE_BLUETOOTH := true
-BOARD_CUSTOM_BLUEDROID := ../../../device/motorola/jordan/bluedroid.c
+BOARD_CUSTOM_BLUEDROID := ../../../device/motorola/jordan-common/bluedroid.c
 
 BOARD_MASS_STORAGE_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun0/file"
 
@@ -102,7 +99,7 @@ BOARD_BOOTMODE_CONFIG_FILE := /cache/recovery/bootmode.conf
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/motorola/jordan/recovery_ui.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/motorola/jordan-common/recovery_ui.c
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_RECOVERY_IGNORE_BOOTABLES := true
 BOARD_HAS_SMALL_RECOVERY := true
@@ -119,24 +116,6 @@ BOARD_NEVER_UMOUNT_SYSTEM := true
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_generic
 #TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_generic
 
-# Override cyanogen squisher to customize our update zip package
-TARGET_CUSTOM_RELEASETOOL := ./device/motorola/jordan/releasetools/squisher
-
 # Jordan need 2nd-init binary from motorola common
 TARGET_NEEDS_MOTOROLA_HIJACK := true
-
-# In nighly builds only
-ifndef CYANOGEN_RELEASE
-
-#BOARD_HAVE_FM_RADIO := true
-#BOARD_FM_DEVICE := wl1271
-#TARGET_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-#TARGET_GLOBAL_CPPFLAGS += -DHAVE_FM_RADIO
-
-endif
-
-# Gingerbread kernel specifics
-ifeq ($(BOARD_DEFY_MODEL),DEFY_GINGER)
-BOARD_USE_CID_ROTATE_34 := true
-endif
 

@@ -1,0 +1,10 @@
+Change-Id: I47d88fdd9ea21aa97b0cc0ca4a21a5c09437de0b
+Code-Review+2: Danny Baumann <dannybaumann@web.de>
+Verified+1: Danny Baumann <dannybaumann@web.de>
+Code-Review+1: Nicholas Semendyaev <agent00791@gmail.com>
+Code-Review+1: Taichi Nishimura <fuzzzzzzzzzzzzzzzzzz@gmail.com>
+Submitted-by: Danny Baumann <dannybaumann@web.de>
+Submitted-at: Fri, 23 Nov 2012 00:06:31 -0800
+Reviewed-on: http://review.cyanogenmod.org/26008
+Project: CyanogenMod/android_device_motorola_jordan-common
+Branch: refs/heads/gingerbread

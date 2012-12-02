@@ -153,6 +153,8 @@ on property:sys.chargeonly.mode=0
 on property:sys.chargeonly.mode=1
     start console
     write /data/simpin lock
+    chmod 0660 /data/simpin
+    chown system system /data/simpin
     exec /system/bin/charge_only_mode
     exec /system/bin/stop zygote
 
